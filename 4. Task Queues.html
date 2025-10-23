@@ -1,0 +1,33 @@
+<html>
+<script>
+  console.log("Start");
+
+  setTimeout(() => {
+    console.log("⏱️ setTimeout callback (Macrotask)");
+  }, 0);
+
+  const makeCoffee = new Promise((resolve, reject) => {
+    console.log("Brewing coffee...");
+    resolve("☕ Coffee is ready!");
+  });
+
+  makeCoffee.then((message) => {
+    console.log("🧩 Promise callback (Microtask):", message);
+  });
+
+  console.log("End");
+</script>
+
+<body>
+  <h1>Event Loop/Task Queues</h1>
+  <p>
+    Understand the flow:
+    <ol>
+        <li>Synchronous items</li>
+        <li>MicroTasks - like Promise</li>
+        <li>Macro tasks - like setTimeout</li>
+    </ol>
+  </p>
+</body>
+
+</html>

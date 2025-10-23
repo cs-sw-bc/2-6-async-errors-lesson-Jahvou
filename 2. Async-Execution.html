@@ -1,0 +1,44 @@
+<html>
+    <script>
+        //Basic Synchronous Execution
+        console.log("Basic Synchronous Exeuction:");
+        console.log("Step 1");
+        console.log("Step 2");
+        console.log("Step 3");
+
+        // Try adding a timeout between Start and End
+        /*
+        console.log("Basic Asynchronous Exeuction:");
+        console.log("Start");
+        console.log("End");
+        */
+
+        //Async execution with multiple timeouts
+        /*
+        console.log("A");
+        setTimeout(() => console.log("B (after 2s)"), 2000);
+        setTimeout(() => console.log("C (after 1s)"), 1000);
+        console.log("D");
+        */
+
+        //0ms delay
+        /*
+        console.log("Start");
+        setTimeout(() => console.log("Timer 1"), 0);
+        setTimeout(() => console.log("Timer 2"), 0);
+        console.log("End");
+        */
+
+        /*Challenge
+        
+        1. Print “Preparing…”
+        2. After 3 seconds → print “Your coffee is ready ☕”
+        3. Immediately after scheduling, print “Please wait while we brew your coffee…”
+        */
+
+
+    </script>
+    <body>
+        <h1>Asynchronous Exeuction</h1>
+    </body>
+</html>
