@@ -1,6 +1,7 @@
 <html>
 <script>
   function displayUser() {
+    try {
     let user = {
       name: "Dan",
       address: "Canada"
@@ -8,16 +9,40 @@
     user = null;
     console.log(user.name);
     console.log("✅ Program continues...");
+  } catch (err){
+    console.log("oops, an error occurred:", err.name);
+  }  
   }
 
-
+  // Divide by zero example
   function divide(a, b) {
+    try{
+      //if denominator is zero, an error will be thrown
+      if (b==0){
+        throw new Error("cannot divide by zero.");
+      }
     let reminder = a / b;
     console.log("Result:", a / b);
+  } catch(error){
+    console.log("oops, an error occurred:", error.message)
+  }
   }
 
   function registerUser(username) {
+    // if the user name is empty, throw an error
+    //step 1. write try-catch
+    //step 2. check if username == "" and throw an error
+    //step 3. username.trim()=="" , to avoid spaces only
+    try{
+      if (username.trim() == ""){
+        throw new Error("Username cannot be empty.");
+      } 
+      else {
     console.log(`✅ User '${username}' registered successfully!`);
+      }
+    } catch(error){
+      console.log("oops, an error occurred:", error.message)
+    }
   }
 
   registerUser("Alex");

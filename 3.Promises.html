@@ -1,9 +1,37 @@
 <html>
     <script>
         /*1. Create a simple promise*/
+        const myPromise = new Promise((resolve,reject)=>{
+            console.log("preparing your food"); // synchronous code
 
+            setTimeout(() => {
+                let ingredientsAvailable = true;
+             if(ingredientsAvailable == true){
+            resolve("Your food is served - hot and fresh"); //call resolve when the task is successful, async code
+            } else {
+                reject("Sorry, ingredients not available"); //call reject when there is an error, async code
+            }
+        }, 3000)
+
+        }); //fat arrow function , 2 parameters: resolve, reject
         /*2. Use the promise*/
+           
+        myPromise
+            .then((message)=>console.log("Food ready:", message))
+            .catch((error)=>console.log("Error:", error));
 
+        
+            async function orderFood(){
+                try{
+                // wait for the promise to be resolved/rejected
+                let messageFromKitchen = await myPromise;
+                console.log("food ready from async function:", messageFromKitchen);
+                } catch(error){
+                console.log("Error from async function:", error);
+                // variable time to complete - are async operation
+            }
+        }
+            orderFood();
         /*3. Add a promise with both resolve and reject*/
 
         /*4. Use then and catch both*/
